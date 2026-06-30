@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "Age Tool - Online Age Key Generator Encryption Decryption Tool",
+    "description": "A simple and secure online client-side Age key generator, encryption and decryption tool."
+  },
+  "settings": {
+    "language": "Language",
+    "theme": "Theme",
+    "themeLight": "Light mode",
+    "themeDark": "Dark mode",
+    "english": "English",
+    "chinese": "Chinese"
+  },
+  "hero": {
+    "title": "Age Tool",
+    "subtitle": "A simple and secure online client-side Age key generator, encryption and decryption tool."
+  },
+  "tabs": {
+    "keys": "Keys",
+    "encrypt": "Encrypt",
+    "encryptBinary": "Encrypt Binary",
+    "decrypt": "Decrypt",
+    "decryptBinary": "Decrypt Binary",
+    "about": "About"
+  },
+  "keys": {
+    "privateKey": "Private key",
+    "publicKey": "Public key",
+    "shareLinkTitle": "Shareable link (supports multiple comma-separated keys)",
+    "privatePlaceholder": "Your private key will be generated here.",
+    "publicPlaceholder": "Your public key will be generated here.",
+    "generate": "Generate Keys"
+  },
+  "encrypt": {
+    "publicKeys": "Public keys",
+    "message": "Message",
+    "output": "Output",
+    "recipientsPlaceholder": "Recipient key or keys one per line",
+    "messagePlaceholder": "Message to encrypt",
+    "outputPlaceholder": "Encrypted output will be generated here",
+    "submit": "Encrypt"
+  },
+  "encryptBinary": {
+    "publicKeys": "Public keys",
+    "files": "Files",
+    "output": "Output",
+    "outputHint": "The encrypted files will be downloaded",
+    "recipientsPlaceholder": "Recipient key or keys one per line",
+    "submit": "Encrypt Binary"
+  },
+  "decrypt": {
+    "privateKeys": "Private keys",
+    "encryptedText": "Encrypted Text",
+    "output": "Output",
+    "identitiesPlaceholder": "Identity key or keys one per line",
+    "encryptedPlaceholder": "Paste here encrypted text",
+    "outputPlaceholder": "Decrypted output will be generated here",
+    "submit": "Decrypt"
+  },
+  "decryptBinary": {
+    "privateKeys": "Private keys",
+    "encryptedFiles": "Encrypted Files",
+    "output": "Output",
+    "outputHint": "The decrypted files will be downloaded",
+    "identitiesPlaceholder": "Identity key or keys one per line",
+    "submit": "Decrypt Binary"
+  },
+  "about": {
+    "p1": "This site provides a simple and easy-to-use open source Age tool for people to generate new Age keys online, encrypt or decrypt messages.",
+    "p2": "Built using Go and WebAssembly. The Go library <a href=\"https://github.com/FiloSottile/age\" target=\"_blank\" rel=\"noopener noreferrer\">Age</a> is wrapped in a WebAssembly module and all actions are done in browser.",
+    "p3": "There is no backend or API calls. Everything is generated on client (browser) side",
+    "p4": "This site is Open Source and the source code is available on <a href=\"https://github.com/MarinX/agewasm\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a>."
+  },
+  "errors": {
+    "selectFile": "Please select a file",
+    "close": "Close"
+  }
+}

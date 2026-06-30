@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,6 +16,21 @@
       Age Tool - Online Age Key Generator Encryption Decryption Tool
     </title>
 
+    <script>
+      (function () {
+        var theme = localStorage.getItem("agewasm-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.dataset.bsTheme = theme;
+        } else if (
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          document.documentElement.dataset.bsTheme = "dark";
+        } else {
+          document.documentElement.dataset.bsTheme = "light";
+        }
+      })();
+    </script>
+
     <script type="module" src="./main.js"></script>
   </head>
 
@@ -24,8 +39,25 @@
       <section class="text-center container">
         <div class="row py-lg-5">
           <div class="col-lg-8 col-md-8 mx-auto">
-            <h1 class="fw-light">Age Tool</h1>
-            <p class="text-muted">
+            <div class="settings-bar mb-3">
+              <div class="settings-group settings-toggle" role="group" aria-labelledby="language-label">
+                <span class="settings-label" id="language-label" data-i18n="settings.language">Language</span>
+                <div class="btn-group btn-group-sm" role="group">
+                  <button type="button" class="btn btn-outline-secondary" data-locale-option="en" aria-pressed="true" data-i18n="settings.english">English</button>
+                  <button type="button" class="btn btn-outline-secondary" data-locale-option="zh" aria-pressed="false" data-i18n="settings.chinese">Chinese</button>
+                </div>
+              </div>
+              <div class="settings-group settings-toggle" role="group" aria-labelledby="theme-label">
+                <span class="settings-label" id="theme-label" data-i18n="settings.theme">Theme</span>
+                <div class="btn-group btn-group-sm" role="group">
+                  <button type="button" class="btn btn-outline-secondary" data-theme-option="light" aria-pressed="true" data-i18n-aria-label="settings.themeLight" data-i18n-title="settings.themeLight" title="Light mode">☀</button>
+                  <button type="button" class="btn btn-outline-secondary" data-theme-option="dark" aria-pressed="false" data-i18n-aria-label="settings.themeDark" data-i18n-title="settings.themeDark" title="Dark mode">☽</button>
+                </div>
+              </div>
+            </div>
+
+            <h1 class="fw-light" data-i18n="hero.title">Age Tool</h1>
+            <p class="text-muted" data-i18n="hero.subtitle">
               A simple and secure online client-side Age key generator,
               encryption and decryption tool.
             </p>
@@ -48,6 +80,7 @@
                   role="tab"
                   aria-controls="keys-tab-pane"
                   aria-selected="true"
+                  data-i18n="tabs.keys"
                 >
                   Keys
                 </button>
@@ -62,6 +95,7 @@
                   role="tab"
                   aria-controls="encrypt-tab-pane"
                   aria-selected="false"
+                  data-i18n="tabs.encrypt"
                 >
                   Encrypt
                 </button>
@@ -76,6 +110,7 @@
                   role="tab"
                   aria-controls="encrypt-binary-tab-pane"
                   aria-selected="false"
+                  data-i18n="tabs.encryptBinary"
                 >
                   Encrypt Binary
                 </button>
@@ -90,6 +125,7 @@
                   role="tab"
                   aria-controls="decrypt-tab-pane"
                   aria-selected="false"
+                  data-i18n="tabs.decrypt"
                 >
                   Decrypt
                 </button>
@@ -104,6 +140,7 @@
                   role="tab"
                   aria-controls="decrypt-binary-tab-pane"
                   aria-selected="false"
+                  data-i18n="tabs.decryptBinary"
                 >
                   Decrypt Binary
                 </button>
@@ -118,6 +155,7 @@
                   role="tab"
                   aria-controls="about-tab-pane"
                   aria-selected="false"
+                  data-i18n="tabs.about"
                 >
                   About
                 </button>
@@ -133,12 +171,13 @@
               >
                 <form id="generateKeysForm">
                   <div class="card mb-3">
-                    <div class="card-header">Private key</div>
+                    <div class="card-header" data-i18n="keys.privateKey">Private key</div>
                     <div class="card-body">
                       <textarea
                         class="form-control message"
                         rows="2"
                         name="privkey"
+                        data-i18n-placeholder="keys.privatePlaceholder"
                         placeholder="Your private key will be generated here."
                         id="privkey"
                         readonly="readonly"
@@ -148,12 +187,24 @@
                   </div>
 
                   <div class="card mb-3">
-                    <div class="card-header">Public key <a id="pubkey-share" title="Shareable link (supports multiple comma-separated keys)" class="text-decoration-none" target="_blank" hidden="true">&nbsp;&#x1F517;</a></div>
+                    <div class="card-header">
+                      <span data-i18n="keys.publicKey">Public key</span>
+                      <a
+                        id="pubkey-share"
+                        data-i18n-title="keys.shareLinkTitle"
+                        title="Shareable link (supports multiple comma-separated keys)"
+                        class="text-decoration-none"
+                        target="_blank"
+                        hidden="true"
+                        >&nbsp;&#x1F517;</a
+                      >
+                    </div>
                     <div class="card-body">
                       <textarea
                         class="form-control message"
                         rows="2"
                         name="pubkey"
+                        data-i18n-placeholder="keys.publicPlaceholder"
                         placeholder="Your public key will be generated here."
                         id="pubkey"
                         readonly="readonly"
@@ -165,7 +216,7 @@
                   <div id="errorKeys"></div>
 
                   <div class="d-grid m-2">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" data-i18n="keys.generate">
                       Generate Keys
                     </button>
                   </div>
@@ -180,12 +231,13 @@
               >
                 <form id="encryptForm">
                   <div class="card mb-3">
-                    <div class="card-header">Public keys</div>
+                    <div class="card-header" data-i18n="encrypt.publicKeys">Public keys</div>
                     <div class="card-body">
                       <textarea
                         class="form-control message"
                         rows="2"
                         name="recipients"
+                        data-i18n-placeholder="encrypt.recipientsPlaceholder"
                         placeholder="Recipient key or keys one per line"
                         id="recipients"
                         required
@@ -194,12 +246,13 @@
                   </div>
 
                   <div class="card mb-3">
-                    <div class="card-header">Message</div>
+                    <div class="card-header" data-i18n="encrypt.message">Message</div>
                     <div class="card-body">
                       <textarea
                         class="form-control message"
                         rows="2"
                         name="message"
+                        data-i18n-placeholder="encrypt.messagePlaceholder"
                         placeholder="Message to encrypt"
                         id="message"
                         required
@@ -208,12 +261,13 @@
                   </div>
 
                   <div class="card mb-3">
-                    <div class="card-header">Output</div>
+                    <div class="card-header" data-i18n="encrypt.output">Output</div>
                     <div class="card-body">
                       <textarea
                         class="form-control message"
                         rows="5"
                         name="encryptedOutput"
+                        data-i18n-placeholder="encrypt.outputPlaceholder"
                         placeholder="Encrypted output will be generated here"
                         id="encryptedOutput"
                         readonly
@@ -225,7 +279,7 @@
                   <div id="errorEncrypt"></div>
 
                   <div class="d-grid m-2">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" data-i18n="encrypt.submit">
                       Encrypt
                     </button>
                   </div>
@@ -241,12 +295,13 @@
               >
                 <form id="encryptBinaryForm">
                   <div class="card mb-3">
-                    <div class="card-header">Public keys</div>
+                    <div class="card-header" data-i18n="encryptBinary.publicKeys">Public keys</div>
                     <div class="card-body">
                       <textarea
                         class="form-control message"
                         rows="2"
                         name="recipients"
+                        data-i18n-placeholder="encryptBinary.recipientsPlaceholder"
                         placeholder="Recipient key or keys one per line"
                         id="recipients-binary"
                         required
@@ -255,7 +310,7 @@
                   </div>
 
                   <div class="card mb-3">
-                    <div class="card-header">Files</div>
+                    <div class="card-header" data-i18n="encryptBinary.files">Files</div>
                     <div class="card-body">
                       <input
                         type="file"
@@ -268,9 +323,9 @@
                   </div>
 
                   <div class="card mb-3">
-                    <div class="card-header">Output</div>
+                    <div class="card-header" data-i18n="encryptBinary.output">Output</div>
                     <div class="card-body">
-                      <p>The encrypted files will be downloaded</p>
+                      <p data-i18n="encryptBinary.outputHint">The encrypted files will be downloaded</p>
                     </div>
                   </div>
 
@@ -284,7 +339,7 @@
                         aria-hidden="true"
                         hidden
                       ></span>
-                      <span class="sr-only">Encrypt Binary</span>
+                      <span data-i18n="encryptBinary.submit">Encrypt Binary</span>
                     </button>
                   </div>
                 </form>
@@ -299,13 +354,14 @@
               >
                 <form id="decryptForm">
                   <div class="card mb-3">
-                    <div class="card-header">Private keys</div>
+                    <div class="card-header" data-i18n="decrypt.privateKeys">Private keys</div>
                     <div class="card-body">
                       <textarea
                         class="form-control message"
                         rows="2"
                         name="identities"
-                        placeholder="Identitiy key or keys one per line"
+                        data-i18n-placeholder="decrypt.identitiesPlaceholder"
+                        placeholder="Identity key or keys one per line"
                         id="identities"
                         required
                       ></textarea>
@@ -313,12 +369,13 @@
                   </div>
 
                   <div class="card mb-3">
-                    <div class="card-header">Encrypted Text</div>
+                    <div class="card-header" data-i18n="decrypt.encryptedText">Encrypted Text</div>
                     <div class="card-body">
                       <textarea
                         class="form-control message"
                         rows="5"
                         name="encryptedText"
+                        data-i18n-placeholder="decrypt.encryptedPlaceholder"
                         placeholder="Paste here encrypted text"
                         id="encryptedText"
                         required
@@ -327,12 +384,13 @@
                   </div>
 
                   <div class="card mb-3">
-                    <div class="card-header">Output</div>
+                    <div class="card-header" data-i18n="decrypt.output">Output</div>
                     <div class="card-body">
                       <textarea
                         class="form-control message"
                         rows="5"
                         name="decryptedOutput"
+                        data-i18n-placeholder="decrypt.outputPlaceholder"
                         placeholder="Decrypted output will be generated here"
                         id="decryptedOutput"
                         readonly
@@ -344,7 +402,7 @@
                   <div id="errorDecrypt"></div>
 
                   <div class="d-grid m-2">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" data-i18n="decrypt.submit">
                       Decrypt
                     </button>
                   </div>
@@ -360,13 +418,14 @@
               >
                 <form id="decryptBinaryForm">
                   <div class="card mb-3">
-                    <div class="card-header">Private keys</div>
+                    <div class="card-header" data-i18n="decryptBinary.privateKeys">Private keys</div>
                     <div class="card-body">
                       <textarea
                         class="form-control message"
                         rows="2"
                         name="identities-binary"
-                        placeholder="Identitiy key or keys one per line"
+                        data-i18n-placeholder="decryptBinary.identitiesPlaceholder"
+                        placeholder="Identity key or keys one per line"
                         id="identities-binary"
                         required
                       ></textarea>
@@ -374,7 +433,7 @@
                   </div>
 
                   <div class="card mb-3">
-                    <div class="card-header">Encrypted Files</div>
+                    <div class="card-header" data-i18n="decryptBinary.encryptedFiles">Encrypted Files</div>
                     <div class="card-body">
                       <input
                         type="file"
@@ -382,15 +441,14 @@
                         class="form-control message"
                         id="filesDecrypt"
                         required
-                        multiple
                       />
                     </div>
                   </div>
 
                   <div class="card mb-3">
-                    <div class="card-header">Output</div>
+                    <div class="card-header" data-i18n="decryptBinary.output">Output</div>
                     <div class="card-body">
-                      <p>The decrypted files will be downloaded</p>
+                      <p data-i18n="decryptBinary.outputHint">The decrypted files will be downloaded</p>
                     </div>
                   </div>
 
@@ -404,7 +462,7 @@
                         aria-hidden="true"
                         hidden
                       ></span>
-                      <span class="sr-only">Decrypt Binary</span>
+                      <span data-i18n="decryptBinary.submit">Decrypt Binary</span>
                     </button>
                   </div>
                 </form>
@@ -416,13 +474,13 @@
                 aria-labelledby="about-tab"
                 tabindex="0"
               >
-                <p class="mt-2">
+                <p class="mt-2" data-i18n="about.p1">
                   This site provides a simple and easy-to-use open source Age
                   tool for people to generate new Age keys online, encrypt or
                   decrypt messages.
                 </p>
 
-                <p>
+                <p data-i18n-html="about.p2">
                   Built using Go and WebAssembly. The Go library
                   <a href="https://github.com/FiloSottile/age" target="_blank"
                     >Age</a
@@ -431,12 +489,12 @@
                   browser.
                 </p>
 
-                <strong
+                <strong data-i18n="about.p3"
                   >There is no backend or API calls. Everything is generated on
                   client(browser) side</strong
                 >
 
-                <p>
+                <p data-i18n-html="about.p4">
                   This site is Open Source and the source code is available on
                   <a href="https://github.com/MarinX/agewasm" target="_blank"
                     >GitHub</a

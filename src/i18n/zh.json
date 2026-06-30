@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "Age 工具 - 在线密钥生成、加密与解密",
+    "description": "简洁安全的在线客户端 Age 密钥生成、加密与解密工具。"
+  },
+  "settings": {
+    "language": "语言",
+    "theme": "主题",
+    "themeLight": "浅色模式",
+    "themeDark": "深色模式",
+    "english": "English",
+    "chinese": "中文"
+  },
+  "hero": {
+    "title": "Age 工具",
+    "subtitle": "简洁安全的在线客户端 Age 密钥生成、加密与解密工具。"
+  },
+  "tabs": {
+    "keys": "密钥",
+    "encrypt": "加密",
+    "encryptBinary": "文件加密",
+    "decrypt": "解密",
+    "decryptBinary": "文件解密",
+    "about": "关于"
+  },
+  "keys": {
+    "privateKey": "私钥",
+    "publicKey": "公钥",
+    "shareLinkTitle": "可分享链接（支持多个逗号分隔的公钥）",
+    "privatePlaceholder": "私钥将在此生成。",
+    "publicPlaceholder": "公钥将在此生成。",
+    "generate": "生成密钥"
+  },
+  "encrypt": {
+    "publicKeys": "公钥",
+    "message": "消息",
+    "output": "输出",
+    "recipientsPlaceholder": "接收方公钥，每行一个",
+    "messagePlaceholder": "待加密的消息",
+    "outputPlaceholder": "加密结果将在此显示",
+    "submit": "加密"
+  },
+  "encryptBinary": {
+    "publicKeys": "公钥",
+    "files": "文件",
+    "output": "输出",
+    "outputHint": "加密后的文件将自动下载",
+    "recipientsPlaceholder": "接收方公钥，每行一个",
+    "submit": "加密文件"
+  },
+  "decrypt": {
+    "privateKeys": "私钥",
+    "encryptedText": "密文",
+    "output": "输出",
+    "identitiesPlaceholder": "身份私钥，每行一个",
+    "encryptedPlaceholder": "在此粘贴密文",
+    "outputPlaceholder": "解密结果将在此显示",
+    "submit": "解密"
+  },
+  "decryptBinary": {
+    "privateKeys": "私钥",
+    "encryptedFiles": "加密文件",
+    "output": "输出",
+    "outputHint": "解密后的文件将自动下载",
+    "identitiesPlaceholder": "身份私钥，每行一个",
+    "submit": "解密文件"
+  },
+  "about": {
+    "p1": "本站提供简洁易用的开源 Age 工具，可在线生成密钥、加密或解密消息。",
+    "p2": "基于 Go 与 WebAssembly 构建。Go 库 <a href=\"https://github.com/FiloSottile/age\" target=\"_blank\" rel=\"noopener noreferrer\">Age</a> 被封装为 WebAssembly 模块，所有操作均在浏览器中完成。",
+    "p3": "无后端、无 API 调用，一切都在客户端（浏览器）生成与处理",
+    "p4": "本站开源，源代码见 <a href=\"https://github.com/MarinX/agewasm\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a>。"
+  },
+  "errors": {
+    "selectFile": "请选择文件",
+    "close": "关闭"
+  }
+}

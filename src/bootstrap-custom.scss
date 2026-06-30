@@ -1,3 +1,26 @@
 @use "bootstrap/scss/bootstrap" with (
-  $color-mode-type: media-query
+  $color-mode-type: data
 );
+
+.settings-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.settings-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.settings-label {
+  font-size: 0.875rem;
+  color: var(--bs-secondary-color);
+  margin: 0;
+}
+
+.settings-toggle .btn {
+  min-width: 2.75rem;
+}

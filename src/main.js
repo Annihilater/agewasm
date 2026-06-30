@@ -2,6 +2,9 @@ import "./bootstrap-custom.scss";
 
 import "bootstrap";
 
+import { initI18n, t } from "./i18n/index.js";
+import { initTheme } from "./theme.js";
+
 import "../vendor/wasm_exec.js";
 import ageWasmUrl from "../vendor/age.wasm?url";
 const go = new Go();
@@ -16,7 +19,7 @@ const alert = (alertPlaceholder, message, type) => {
   wrapper.innerHTML = [
     `<div class="alert alert-${type} alert-dismissible" role="alert">`,
     `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    `   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="${t("errors.close")}"></button>`,
     "</div>",
   ].join("");
 
@@ -95,7 +98,7 @@ document
     if (file.files.length == 0) {
       alert(
         document.getElementById("errorEncryptBinary"),
-        "Please select a file",
+        t("errors.selectFile"),
         "danger",
       );
       return;
@@ -148,7 +151,7 @@ document
     if (file.files.length == 0) {
       alert(
         document.getElementById("errorDecryptBinary"),
-        "Please select a file",
+        t("errors.selectFile"),
         "danger",
       );
       return;
@@ -179,7 +182,10 @@ document
     }
   });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+  initI18n();
+  initTheme();
+
   const params = new URLSearchParams(window.location.search);
   const pubkey = params.get("pubkey");
   if (pubkey) {
