@@ -17,9 +17,9 @@
   },
   "tabs": {
     "keys": "密钥",
-    "encrypt": "加密",
+    "encrypt": "文本加密",
     "encryptBinary": "文件加密",
-    "decrypt": "解密",
+    "decrypt": "文本解密",
     "decryptBinary": "文件解密",
     "about": "关于"
   },

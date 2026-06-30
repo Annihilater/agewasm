@@ -35,41 +35,82 @@
   </head>
 
   <body spellcheck="false">
-    <main>
-      <section class="text-center container">
-        <div class="row py-lg-5">
-          <div class="col-lg-8 col-md-8 mx-auto">
-            <div class="settings-bar mb-3">
-              <div class="settings-group settings-toggle" role="group" aria-labelledby="language-label">
-                <span class="settings-label" id="language-label" data-i18n="settings.language">Language</span>
-                <div class="btn-group btn-group-sm" role="group">
-                  <button type="button" class="btn btn-outline-secondary" data-locale-option="en" aria-pressed="true" data-i18n="settings.english">English</button>
-                  <button type="button" class="btn btn-outline-secondary" data-locale-option="zh" aria-pressed="false" data-i18n="settings.chinese">Chinese</button>
-                </div>
-              </div>
-              <div class="settings-group settings-toggle" role="group" aria-labelledby="theme-label">
-                <span class="settings-label" id="theme-label" data-i18n="settings.theme">Theme</span>
-                <div class="btn-group btn-group-sm" role="group">
-                  <button type="button" class="btn btn-outline-secondary" data-theme-option="light" aria-pressed="true" data-i18n-aria-label="settings.themeLight" data-i18n-title="settings.themeLight" title="Light mode">☀</button>
-                  <button type="button" class="btn btn-outline-secondary" data-theme-option="dark" aria-pressed="false" data-i18n-aria-label="settings.themeDark" data-i18n-title="settings.themeDark" title="Dark mode">☽</button>
-                </div>
-              </div>
-            </div>
-
-            <h1 class="fw-light" data-i18n="hero.title">Age Tool</h1>
-            <p class="text-muted" data-i18n="hero.subtitle">
-              A simple and secure online client-side Age key generator,
-              encryption and decryption tool.
-            </p>
-            <p></p>
+    <header class="app-header">
+      <div class="container-xl app-header-inner">
+        <div class="app-brand">
+          <span class="app-brand-mark" aria-hidden="true">A</span>
+          <span class="app-brand-name" data-i18n="hero.title">Age Tool</span>
+        </div>
+        <div class="app-toolbar">
+          <div
+            class="btn-group btn-group-sm app-toolbar-group"
+            role="group"
+            data-i18n-aria-label="settings.language"
+            aria-label="Language"
+          >
+            <button
+              type="button"
+              class="btn btn-app"
+              data-locale-option="en"
+              aria-pressed="true"
+              data-i18n-aria-label="settings.english"
+              aria-label="English"
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              class="btn btn-app"
+              data-locale-option="zh"
+              aria-pressed="false"
+              data-i18n-aria-label="settings.chinese"
+              aria-label="Chinese"
+            >
+              中
+            </button>
+          </div>
+          <div
+            class="btn-group btn-group-sm app-toolbar-group"
+            role="group"
+            data-i18n-aria-label="settings.theme"
+            aria-label="Theme"
+          >
+            <button
+              type="button"
+              class="btn btn-app"
+              data-theme-option="light"
+              aria-pressed="true"
+              data-i18n-aria-label="settings.themeLight"
+              data-i18n-title="settings.themeLight"
+              title="Light mode"
+            >
+              ☀
+            </button>
+            <button
+              type="button"
+              class="btn btn-app"
+              data-theme-option="dark"
+              aria-pressed="false"
+              data-i18n-aria-label="settings.themeDark"
+              data-i18n-title="settings.themeDark"
+              title="Dark mode"
+            >
+              ☽
+            </button>
           </div>
         </div>
-      </section>
+      </div>
+    </header>
 
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <main class="app-main">
+      <div class="container-xl">
+        <p class="app-hero-subtitle" data-i18n="hero.subtitle">
+          A simple and secure online client-side Age key generator,
+          encryption and decryption tool.
+        </p>
+
+        <div class="app-panel">
+            <ul class="nav nav-tabs app-tabs" id="myTab" role="tablist">
               <li class="nav-item" role="presentation">
                 <button
                   class="nav-link active"
@@ -161,7 +202,7 @@
                 </button>
               </li>
             </ul>
-            <div class="tab-content" id="myTabContent">
+            <div class="tab-content app-tab-content" id="myTabContent">
               <div
                 class="tab-pane show active"
                 id="keys-tab-pane"
@@ -170,7 +211,7 @@
                 tabindex="0"
               >
                 <form id="generateKeysForm">
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="keys.privateKey">Private key</div>
                     <div class="card-body">
                       <textarea
@@ -186,7 +227,7 @@
                     </div>
                   </div>
 
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header">
                       <span data-i18n="keys.publicKey">Public key</span>
                       <a
@@ -230,7 +271,7 @@
                 tabindex="0"
               >
                 <form id="encryptForm">
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="encrypt.publicKeys">Public keys</div>
                     <div class="card-body">
                       <textarea
@@ -245,7 +286,7 @@
                     </div>
                   </div>
 
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="encrypt.message">Message</div>
                     <div class="card-body">
                       <textarea
@@ -260,7 +301,7 @@
                     </div>
                   </div>
 
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="encrypt.output">Output</div>
                     <div class="card-body">
                       <textarea
@@ -294,7 +335,7 @@
                 tabindex="0"
               >
                 <form id="encryptBinaryForm">
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="encryptBinary.publicKeys">Public keys</div>
                     <div class="card-body">
                       <textarea
@@ -309,7 +350,7 @@
                     </div>
                   </div>
 
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="encryptBinary.files">Files</div>
                     <div class="card-body">
                       <input
@@ -322,7 +363,7 @@
                     </div>
                   </div>
 
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="encryptBinary.output">Output</div>
                     <div class="card-body">
                       <p data-i18n="encryptBinary.outputHint">The encrypted files will be downloaded</p>
@@ -353,7 +394,7 @@
                 tabindex="0"
               >
                 <form id="decryptForm">
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="decrypt.privateKeys">Private keys</div>
                     <div class="card-body">
                       <textarea
@@ -368,7 +409,7 @@
                     </div>
                   </div>
 
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="decrypt.encryptedText">Encrypted Text</div>
                     <div class="card-body">
                       <textarea
@@ -383,7 +424,7 @@
                     </div>
                   </div>
 
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="decrypt.output">Output</div>
                     <div class="card-body">
                       <textarea
@@ -417,7 +458,7 @@
                 tabindex="0"
               >
                 <form id="decryptBinaryForm">
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="decryptBinary.privateKeys">Private keys</div>
                     <div class="card-body">
                       <textarea
@@ -432,7 +473,7 @@
                     </div>
                   </div>
 
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="decryptBinary.encryptedFiles">Encrypted Files</div>
                     <div class="card-body">
                       <input
@@ -445,7 +486,7 @@
                     </div>
                   </div>
 
-                  <div class="card mb-3">
+                  <div class="card app-card mb-3">
                     <div class="card-header" data-i18n="decryptBinary.output">Output</div>
                     <div class="card-body">
                       <p data-i18n="decryptBinary.outputHint">The decrypted files will be downloaded</p>
@@ -502,7 +543,6 @@
                 </p>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </main>

@@ -18,9 +18,9 @@
   "tabs": {
     "keys": "Keys",
     "encrypt": "Encrypt",
-    "encryptBinary": "Encrypt Binary",
+    "encryptBinary": "Files ↑",
     "decrypt": "Decrypt",
-    "decryptBinary": "Decrypt Binary",
+    "decryptBinary": "Files ↓",
     "about": "About"
   },
   "keys": {
