@@ -71,24 +71,28 @@ export function setMode(mode, { persist = true } = {}) {
   syncModeControls();
 }
 
+function syncPressedState(selector, isActive) {
+  document.querySelectorAll(selector).forEach((button) => {
+    const active = isActive(button);
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
+
 function syncColorThemeControls() {
   const active = getColorTheme();
-
-  document.querySelectorAll("[data-color-theme-option]").forEach((button) => {
-    const selected = button.dataset.colorThemeOption === active;
-    button.classList.toggle("active", selected);
-    button.setAttribute("aria-pressed", String(selected));
-  });
+  syncPressedState(
+    "[data-color-theme-option]",
+    (button) => button.dataset.colorThemeOption === active,
+  );
 }
 
 function syncModeControls() {
   const mode = getMode();
-
-  document.querySelectorAll("[data-mode-option]").forEach((button) => {
-    const active = button.dataset.modeOption === mode;
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
+  syncPressedState(
+    "[data-mode-option]",
+    (button) => button.dataset.modeOption === mode,
+  );
 }
 
 function closeThemePicker() {

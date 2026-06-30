@@ -69,16 +69,16 @@
           <span class="app-brand-mark" aria-hidden="true">A</span>
           <span class="app-brand-name" data-i18n="hero.title">Age Tool</span>
         </div>
-        <div class="app-toolbar">
+        <div class="app-controls">
           <div
-            class="btn-group btn-group-sm app-toolbar-group"
+            class="control-segment"
             role="group"
             data-i18n-aria-label="settings.language"
             aria-label="Language"
           >
             <button
               type="button"
-              class="btn btn-app"
+              class="control-btn control-btn--text"
               data-locale-option="en"
               aria-pressed="true"
               data-i18n-aria-label="settings.english"
@@ -88,7 +88,7 @@
             </button>
             <button
               type="button"
-              class="btn btn-app"
+              class="control-btn control-btn--text"
               data-locale-option="zh"
               aria-pressed="false"
               data-i18n-aria-label="settings.chinese"
@@ -97,39 +97,46 @@
               中
             </button>
           </div>
+          <span class="control-divider" aria-hidden="true"></span>
           <div
-            class="btn-group btn-group-sm app-toolbar-group"
+            class="control-segment"
             role="group"
             data-i18n-aria-label="settings.appearance"
             aria-label="Appearance"
           >
             <button
               type="button"
-              class="btn btn-app"
+              class="control-btn"
               data-mode-option="light"
               aria-pressed="true"
               data-i18n-aria-label="settings.themeLight"
               data-i18n-title="settings.themeLight"
               title="Light mode"
             >
-              ☀
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 3v2M12 19v2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M3 12h2M19 12h2M5.6 18.4l1.4-1.4M17 7l1.4-1.4"></path>
+              </svg>
             </button>
             <button
               type="button"
-              class="btn btn-app"
+              class="control-btn"
               data-mode-option="dark"
               aria-pressed="false"
               data-i18n-aria-label="settings.themeDark"
               data-i18n-title="settings.themeDark"
               title="Dark mode"
             >
-              ☽
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 14.5A7.5 7.5 0 1 1 9.5 4a6 6 0 1 0 10.5 10.5z"></path>
+              </svg>
             </button>
           </div>
+          <span class="control-divider" aria-hidden="true"></span>
           <div class="theme-picker" id="themePicker">
             <button
               type="button"
-              class="btn btn-app theme-picker-trigger"
+              class="control-btn control-btn--solo"
               id="themePickerTrigger"
               aria-haspopup="true"
               aria-expanded="false"
@@ -137,7 +144,13 @@
               data-i18n-title="settings.chooseTheme"
               title="Choose a color theme"
             >
-              ◐
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3a9 9 0 1 0 8.2 12.7c.2-.8-.5-1.4-1.2-1.4H17c-2.2 0-4-1.8-4-4 0-.7-.6-1.3-1.3-1.3A9 9 0 0 0 12 3z"></path>
+                <circle cx="8" cy="11" r="1" fill="currentColor" stroke="none"></circle>
+                <circle cx="11" cy="8" r="1" fill="currentColor" stroke="none"></circle>
+                <circle cx="15" cy="9" r="1" fill="currentColor" stroke="none"></circle>
+                <circle cx="16" cy="13" r="1" fill="currentColor" stroke="none"></circle>
+              </svg>
             </button>
             <div class="theme-picker-menu" id="themePickerMenu" hidden>
               <p class="theme-picker-title" data-i18n="settings.colorTheme">
