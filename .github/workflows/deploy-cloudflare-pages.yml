@@ -50,4 +50,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: agewasm
           directory: dist
-          production: ${{ github.ref == 'refs/heads/main' }}
+          branch: ${{ github.ref_name }}
