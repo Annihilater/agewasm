@@ -65,7 +65,7 @@ npm-install: $(npm-install)
 # but that's fine here because it means the target will run.
 build = dist/*
 
-$(build): $(import) $(build-wasm) $(npm-install) $(web-sources)
+$(build): $(IMPORT) $(build-wasm) $(npm-install) $(web-sources)
 	pnpm run build
 
 build: $(build)
