@@ -1,0 +1,183 @@
+// Color theme presets — combined with Bootstrap data-bs-theme (light/dark)
+
+@mixin theme-vars(
+  $primary,
+  $primary-rgb,
+  $page-bg,
+  $header-bg,
+  $panel-bg,
+  $panel-border,
+  $tab-bg,
+  $tab-active-bg,
+  $toolbar-bg,
+  $toolbar-border,
+  $brand-bg,
+  $brand-fg,
+  $shadow: 0 8px 24px rgba(15, 23, 42, 0.06)
+) {
+  --bs-primary: #{$primary};
+  --bs-primary-rgb: #{$primary-rgb};
+  --bs-link-color: #{$primary};
+  --bs-link-hover-color: #{$primary};
+  --app-page-bg: #{$page-bg};
+  --app-header-bg: #{$header-bg};
+  --app-panel-bg: #{$panel-bg};
+  --app-panel-border: #{$panel-border};
+  --app-tab-bg: #{$tab-bg};
+  --app-tab-active-bg: #{$tab-active-bg};
+  --app-toolbar-bg: #{$toolbar-bg};
+  --app-toolbar-border: #{$toolbar-border};
+  --app-brand-mark-bg: #{$brand-bg};
+  --app-brand-mark-fg: #{$brand-fg};
+  --app-panel-shadow: #{$shadow};
+}
+
+[data-color-theme="slate"] {
+  @include theme-vars(
+    #2563eb,
+    "37, 99, 235",
+    #f1f5f9,
+    rgba(255, 255, 255, 0.94),
+    #ffffff,
+    #e2e8f0,
+    #f8fafc,
+    #ffffff,
+    #eef2f7,
+    #cbd5e1,
+    #1d4ed8,
+    #ffffff
+  );
+}
+
+[data-color-theme="paper"] {
+  @include theme-vars(
+    #4f46e5,
+    "79, 70, 229",
+    #f5f5f4,
+    rgba(255, 255, 253, 0.94),
+    #ffffff,
+    #e7e5e4,
+    #fafaf9,
+    #ffffff,
+    #f5f5f4,
+    #d6d3d1,
+    #4338ca,
+    #ffffff
+  );
+}
+
+[data-color-theme="arctic"] {
+  @include theme-vars(
+    #0284c7,
+    "2, 132, 199",
+    #f0f9ff,
+    rgba(255, 255, 255, 0.94),
+    #ffffff,
+    #bae6fd,
+    #e0f2fe,
+    #ffffff,
+    #e0f2fe,
+    #7dd3fc,
+    #0369a1,
+    #ffffff
+  );
+}
+
+[data-color-theme="midnight"] {
+  @include theme-vars(
+    #38bdf8,
+    "56, 189, 248",
+    #0b1220,
+    rgba(11, 18, 32, 0.94),
+    #131c2e,
+    #1e2d45,
+    #0f172a,
+    #131c2e,
+    #1a2438,
+    #2a3a55,
+    #0ea5e9,
+    #082f49,
+    0 8px 28px rgba(0, 0, 0, 0.35)
+  );
+}
+
+[data-color-theme="obsidian"] {
+  @include theme-vars(
+    #a78bfa,
+    "167, 139, 250",
+    #09090b,
+    rgba(9, 9, 11, 0.94),
+    #141416,
+    #27272a,
+    #111113,
+    #141416,
+    #1c1c1f,
+    #3f3f46,
+    #7c3aed,
+    #faf5ff,
+    0 8px 28px rgba(0, 0, 0, 0.4)
+  );
+}
+
+[data-color-theme="forest"] {
+  @include theme-vars(
+    #2dd4bf,
+    "45, 212, 191",
+    #0a100e,
+    rgba(10, 16, 14, 0.94),
+    #121a17,
+    #1f2e29,
+    #0e1613,
+    #121a17,
+    #182420,
+    #2d4039,
+    #0d9488,
+    #ecfdf5,
+    0 8px 28px rgba(0, 0, 0, 0.35)
+  );
+}
+
+.theme-swatch-preview {
+  display: block;
+  width: 100%;
+  height: 1.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(
+    135deg,
+    var(--swatch-a) 0%,
+    var(--swatch-a) 50%,
+    var(--swatch-b) 50%,
+    var(--swatch-b) 100%
+  );
+}
+
+.theme-swatch-preview[data-preview="slate"] {
+  --swatch-a: #2563eb;
+  --swatch-b: #f1f5f9;
+}
+
+.theme-swatch-preview[data-preview="paper"] {
+  --swatch-a: #4f46e5;
+  --swatch-b: #f5f5f4;
+}
+
+.theme-swatch-preview[data-preview="arctic"] {
+  --swatch-a: #0284c7;
+  --swatch-b: #f0f9ff;
+}
+
+.theme-swatch-preview[data-preview="midnight"] {
+  --swatch-a: #38bdf8;
+  --swatch-b: #0b1220;
+}
+
+.theme-swatch-preview[data-preview="obsidian"] {
+  --swatch-a: #a78bfa;
+  --swatch-b: #09090b;
+}
+
+.theme-swatch-preview[data-preview="forest"] {
+  --swatch-a: #2dd4bf;
+  --swatch-b: #0a100e;
+}

@@ -5,11 +5,18 @@
   },
   "settings": {
     "language": "语言",
-    "theme": "主题",
-    "themeLight": "浅色模式",
-    "themeDark": "深色模式",
+    "colorTheme": "配色主题",
+    "chooseTheme": "选择配色主题",
     "english": "English",
     "chinese": "中文"
+  },
+  "themes": {
+    "slate": "板岩蓝",
+    "paper": "纸感灰",
+    "arctic": "极地蓝",
+    "midnight": "午夜蓝",
+    "obsidian": "黑曜紫",
+    "forest": "森林绿"
   },
   "hero": {
     "title": "Age 工具",

@@ -18,16 +18,26 @@
 
     <script>
       (function () {
-        var theme = localStorage.getItem("agewasm-theme");
-        if (theme === "light" || theme === "dark") {
-          document.documentElement.dataset.bsTheme = theme;
-        } else if (
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-        ) {
-          document.documentElement.dataset.bsTheme = "dark";
-        } else {
-          document.documentElement.dataset.bsTheme = "light";
+        var themes = {
+          slate: "light",
+          paper: "light",
+          arctic: "light",
+          midnight: "dark",
+          obsidian: "dark",
+          forest: "dark",
+        };
+        var saved = localStorage.getItem("agewasm-color-theme");
+        var legacy = localStorage.getItem("agewasm-theme");
+        var colorTheme = "slate";
+
+        if (saved && themes[saved]) {
+          colorTheme = saved;
+        } else if (legacy === "dark") {
+          colorTheme = "midnight";
         }
+
+        document.documentElement.dataset.colorTheme = colorTheme;
+        document.documentElement.dataset.bsTheme = themes[colorTheme];
       })();
     </script>
 
@@ -69,34 +79,116 @@
               中
             </button>
           </div>
-          <div
-            class="btn-group btn-group-sm app-toolbar-group"
-            role="group"
-            data-i18n-aria-label="settings.theme"
-            aria-label="Theme"
-          >
+          <div class="theme-picker" id="themePicker">
             <button
               type="button"
-              class="btn btn-app"
-              data-theme-option="light"
-              aria-pressed="true"
-              data-i18n-aria-label="settings.themeLight"
-              data-i18n-title="settings.themeLight"
-              title="Light mode"
+              class="btn btn-app theme-picker-trigger"
+              id="themePickerTrigger"
+              aria-haspopup="true"
+              aria-expanded="false"
+              data-i18n-aria-label="settings.chooseTheme"
+              data-i18n-title="settings.chooseTheme"
+              title="Choose a color theme"
             >
-              ☀
+              ◐
             </button>
-            <button
-              type="button"
-              class="btn btn-app"
-              data-theme-option="dark"
-              aria-pressed="false"
-              data-i18n-aria-label="settings.themeDark"
-              data-i18n-title="settings.themeDark"
-              title="Dark mode"
-            >
-              ☽
-            </button>
+            <div class="theme-picker-menu" id="themePickerMenu" hidden>
+              <p class="theme-picker-title" data-i18n="settings.colorTheme">
+                Color theme
+              </p>
+              <div class="theme-picker-grid">
+                <button
+                  type="button"
+                  class="theme-swatch"
+                  data-color-theme-option="slate"
+                  aria-pressed="true"
+                >
+                  <span
+                    class="theme-swatch-preview"
+                    data-preview="slate"
+                    aria-hidden="true"
+                  ></span>
+                  <span data-theme-label="slate" data-i18n="themes.slate"
+                    >Slate</span
+                  >
+                </button>
+                <button
+                  type="button"
+                  class="theme-swatch"
+                  data-color-theme-option="paper"
+                  aria-pressed="false"
+                >
+                  <span
+                    class="theme-swatch-preview"
+                    data-preview="paper"
+                    aria-hidden="true"
+                  ></span>
+                  <span data-theme-label="paper" data-i18n="themes.paper"
+                    >Paper</span
+                  >
+                </button>
+                <button
+                  type="button"
+                  class="theme-swatch"
+                  data-color-theme-option="arctic"
+                  aria-pressed="false"
+                >
+                  <span
+                    class="theme-swatch-preview"
+                    data-preview="arctic"
+                    aria-hidden="true"
+                  ></span>
+                  <span data-theme-label="arctic" data-i18n="themes.arctic"
+                    >Arctic</span
+                  >
+                </button>
+                <button
+                  type="button"
+                  class="theme-swatch"
+                  data-color-theme-option="midnight"
+                  aria-pressed="false"
+                >
+                  <span
+                    class="theme-swatch-preview"
+                    data-preview="midnight"
+                    aria-hidden="true"
+                  ></span>
+                  <span data-theme-label="midnight" data-i18n="themes.midnight"
+                    >Midnight</span
+                  >
+                </button>
+                <button
+                  type="button"
+                  class="theme-swatch"
+                  data-color-theme-option="obsidian"
+                  aria-pressed="false"
+                >
+                  <span
+                    class="theme-swatch-preview"
+                    data-preview="obsidian"
+                    aria-hidden="true"
+                  ></span>
+                  <span data-theme-label="obsidian" data-i18n="themes.obsidian"
+                    >Obsidian</span
+                  >
+                </button>
+                <button
+                  type="button"
+                  class="theme-swatch"
+                  data-color-theme-option="forest"
+                  aria-pressed="false"
+                >
+                  <span
+                    class="theme-swatch-preview"
+                    data-preview="forest"
+                    aria-hidden="true"
+                  ></span>
+                  <span data-theme-label="forest" data-i18n="themes.forest"
+                    >Forest</span
+                  >
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

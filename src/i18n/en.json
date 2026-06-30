@@ -5,11 +5,18 @@
   },
   "settings": {
     "language": "Language",
-    "theme": "Theme",
-    "themeLight": "Light mode",
-    "themeDark": "Dark mode",
+    "colorTheme": "Color theme",
+    "chooseTheme": "Choose a color theme",
     "english": "English",
     "chinese": "Chinese"
+  },
+  "themes": {
+    "slate": "Slate",
+    "paper": "Paper",
+    "arctic": "Arctic",
+    "midnight": "Midnight",
+    "obsidian": "Obsidian",
+    "forest": "Forest"
   },
   "hero": {
     "title": "Age Tool",
