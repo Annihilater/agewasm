@@ -4,23 +4,29 @@ const COLOR_STORAGE_KEY = "agewasm-color-theme";
 const MODE_STORAGE_KEY = "agewasm-mode";
 const LEGACY_MODE_KEY = "agewasm-theme";
 
-const DEFAULT_COLOR_THEME = "slate";
+const DEFAULT_COLOR_THEME = "pulse";
 
 export const COLOR_THEMES = [
-  "slate",
-  "indigo",
-  "ocean",
-  "moss",
-  "sand",
-  "graphite",
+  "alloy",
+  "pulse",
+  "grid",
+  "spectra",
+  "lattice",
+  "signal",
 ];
 
 const LEGACY_COLOR_MAP = {
-  paper: "sand",
-  arctic: "ocean",
-  midnight: "ocean",
-  obsidian: "indigo",
-  forest: "moss",
+  slate: "alloy",
+  indigo: "spectra",
+  ocean: "grid",
+  moss: "lattice",
+  sand: "signal",
+  graphite: "alloy",
+  paper: "signal",
+  arctic: "grid",
+  midnight: "pulse",
+  obsidian: "spectra",
+  forest: "lattice",
 };
 
 function getSystemMode() {

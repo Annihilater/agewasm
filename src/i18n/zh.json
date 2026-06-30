@@ -18,12 +18,12 @@
     "chinese": "中文"
   },
   "themes": {
-    "slate": "板岩灰",
-    "indigo": "靛紫",
-    "ocean": "深海蓝",
-    "moss": "苔藓绿",
-    "sand": "暖沙",
-    "graphite": "石墨"
+    "alloy": "合金钛",
+    "pulse": "脉冲蓝",
+    "grid": "栅格蓝",
+    "spectra": "光谱紫",
+    "lattice": "晶格青",
+    "signal": "信号橙"
   },
   "hero": {
     "title": "Age 工具",

@@ -19,22 +19,28 @@
     <script>
       (function () {
         var colorThemes = [
-          "slate",
-          "indigo",
-          "ocean",
-          "moss",
-          "sand",
-          "graphite",
+          "alloy",
+          "pulse",
+          "grid",
+          "spectra",
+          "lattice",
+          "signal",
         ];
         var legacyColorMap = {
-          paper: "sand",
-          arctic: "ocean",
-          midnight: "ocean",
-          obsidian: "indigo",
-          forest: "moss",
+          slate: "alloy",
+          indigo: "spectra",
+          ocean: "grid",
+          moss: "lattice",
+          sand: "signal",
+          graphite: "alloy",
+          paper: "signal",
+          arctic: "grid",
+          midnight: "pulse",
+          obsidian: "spectra",
+          forest: "lattice",
         };
         var savedColor = localStorage.getItem("agewasm-color-theme");
-        var colorTheme = "slate";
+        var colorTheme = "pulse";
         if (savedColor && colorThemes.indexOf(savedColor) !== -1) {
           colorTheme = savedColor;
         } else if (savedColor && legacyColorMap[savedColor]) {
@@ -124,80 +130,80 @@
                 <button
                   type="button"
                   class="theme-swatch"
-                  data-color-theme-option="slate"
+                  data-color-theme-option="alloy"
+                  aria-pressed="false"
+                >
+                  <span
+                    class="theme-swatch-preview"
+                    data-preview="alloy"
+                    aria-hidden="true"
+                  ></span>
+                  <span data-i18n="themes.alloy">Alloy</span>
+                </button>
+                <button
+                  type="button"
+                  class="theme-swatch"
+                  data-color-theme-option="pulse"
                   aria-pressed="true"
                 >
                   <span
                     class="theme-swatch-preview"
-                    data-preview="slate"
+                    data-preview="pulse"
                     aria-hidden="true"
                   ></span>
-                  <span data-i18n="themes.slate">Slate</span>
+                  <span data-i18n="themes.pulse">Pulse</span>
                 </button>
                 <button
                   type="button"
                   class="theme-swatch"
-                  data-color-theme-option="indigo"
+                  data-color-theme-option="grid"
                   aria-pressed="false"
                 >
                   <span
                     class="theme-swatch-preview"
-                    data-preview="indigo"
+                    data-preview="grid"
                     aria-hidden="true"
                   ></span>
-                  <span data-i18n="themes.indigo">Indigo</span>
+                  <span data-i18n="themes.grid">Grid</span>
                 </button>
                 <button
                   type="button"
                   class="theme-swatch"
-                  data-color-theme-option="ocean"
+                  data-color-theme-option="spectra"
                   aria-pressed="false"
                 >
                   <span
                     class="theme-swatch-preview"
-                    data-preview="ocean"
+                    data-preview="spectra"
                     aria-hidden="true"
                   ></span>
-                  <span data-i18n="themes.ocean">Ocean</span>
+                  <span data-i18n="themes.spectra">Spectra</span>
                 </button>
                 <button
                   type="button"
                   class="theme-swatch"
-                  data-color-theme-option="moss"
+                  data-color-theme-option="lattice"
                   aria-pressed="false"
                 >
                   <span
                     class="theme-swatch-preview"
-                    data-preview="moss"
+                    data-preview="lattice"
                     aria-hidden="true"
                   ></span>
-                  <span data-i18n="themes.moss">Moss</span>
+                  <span data-i18n="themes.lattice">Lattice</span>
                 </button>
                 <button
                   type="button"
                   class="theme-swatch"
-                  data-color-theme-option="sand"
+                  data-color-theme-option="signal"
                   aria-pressed="false"
                 >
                   <span
                     class="theme-swatch-preview"
-                    data-preview="sand"
+                    data-preview="signal"
                     aria-hidden="true"
                   ></span>
-                  <span data-i18n="themes.sand">Sand</span>
-                </button>
-                <button
-                  type="button"
-                  class="theme-swatch"
-                  data-color-theme-option="graphite"
-                  aria-pressed="false"
-                >
-                  <span
-                    class="theme-swatch-preview"
-                    data-preview="graphite"
-                    aria-hidden="true"
-                  ></span>
-                  <span data-i18n="themes.graphite">Graphite</span>
+                  <span data-i18n="themes.signal">Signal</span>
                 </button>
               </div>
             </div>

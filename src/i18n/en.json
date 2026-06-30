@@ -18,12 +18,12 @@
     "chinese": "Chinese"
   },
   "themes": {
-    "slate": "Slate",
-    "indigo": "Indigo",
-    "ocean": "Ocean",
-    "moss": "Moss",
-    "sand": "Sand",
-    "graphite": "Graphite"
+    "alloy": "Alloy",
+    "pulse": "Pulse",
+    "grid": "Grid",
+    "spectra": "Spectra",
+    "lattice": "Lattice",
+    "signal": "Signal"
   },
   "hero": {
     "title": "Age Tool",
