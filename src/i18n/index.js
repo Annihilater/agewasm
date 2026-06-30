@@ -71,6 +71,7 @@ export function applyTranslations(root = document) {
   });
 
   updateDocumentMeta();
+  syncLocaleToggle();
   document.dispatchEvent(
     new CustomEvent("localechange", { detail: { locale: currentLocale } }),
   );
@@ -81,25 +82,28 @@ export function setLocale(locale, { persist = true } = {}) {
   currentLocale = locale;
   if (persist) localStorage.setItem(STORAGE_KEY, locale);
   applyTranslations();
-  syncLocaleControls();
 }
 
-function syncLocaleControls() {
-  document.querySelectorAll("[data-locale-option]").forEach((button) => {
-    const active = button.dataset.localeOption === currentLocale;
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
+function syncLocaleToggle() {
+  const button = document.getElementById("localeToggle");
+  const label = button?.querySelector(".locale-toggle-label");
+  if (!button || !label) return;
+
+  label.textContent = currentLocale === "zh" ? "中" : "EN";
+
+  const hintKey =
+    currentLocale === "zh" ? "settings.switchToEnglish" : "settings.switchToChinese";
+  button.setAttribute("aria-label", t(hintKey));
+  button.setAttribute("title", t(hintKey));
+}
+
+export function toggleLocale() {
+  setLocale(currentLocale === "zh" ? "en" : "zh");
 }
 
 export function initI18n() {
   currentLocale = detectLocale();
   applyTranslations();
-  syncLocaleControls();
 
-  document.querySelectorAll("[data-locale-option]").forEach((button) => {
-    button.addEventListener("click", () => {
-      setLocale(button.dataset.localeOption);
-    });
-  });
+  document.getElementById("localeToggle")?.addEventListener("click", toggleLocale);
 }

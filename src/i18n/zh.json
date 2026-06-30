@@ -10,6 +10,10 @@
     "chooseTheme": "选择配色主题",
     "themeLight": "浅色模式",
     "themeDark": "深色模式",
+    "switchToChinese": "切换到中文",
+    "switchToEnglish": "切换到英文",
+    "switchToDark": "切换到深色模式",
+    "switchToLight": "切换到浅色模式",
     "english": "English",
     "chinese": "中文"
   },

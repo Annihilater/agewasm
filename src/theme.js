@@ -1,3 +1,5 @@
+import { t } from "./i18n/index.js";
+
 const COLOR_STORAGE_KEY = "agewasm-color-theme";
 const MODE_STORAGE_KEY = "agewasm-mode";
 const LEGACY_MODE_KEY = "agewasm-theme";
@@ -68,7 +70,11 @@ export function setMode(mode, { persist = true } = {}) {
     localStorage.setItem(MODE_STORAGE_KEY, mode);
     localStorage.removeItem(LEGACY_MODE_KEY);
   }
-  syncModeControls();
+  syncModeToggle();
+}
+
+export function toggleMode() {
+  setMode(getMode() === "light" ? "dark" : "light");
 }
 
 function syncPressedState(selector, isActive) {
@@ -87,12 +93,20 @@ function syncColorThemeControls() {
   );
 }
 
-function syncModeControls() {
-  const mode = getMode();
-  syncPressedState(
-    "[data-mode-option]",
-    (button) => button.dataset.modeOption === mode,
-  );
+function syncModeToggle() {
+  const button = document.getElementById("modeToggle");
+  if (!button) return;
+
+  const isLight = getMode() === "light";
+  const lightIcon = button.querySelector(".control-icon--light");
+  const darkIcon = button.querySelector(".control-icon--dark");
+
+  if (lightIcon) lightIcon.hidden = !isLight;
+  if (darkIcon) darkIcon.hidden = isLight;
+
+  const hintKey = isLight ? "settings.switchToDark" : "settings.switchToLight";
+  button.setAttribute("aria-label", t(hintKey));
+  button.setAttribute("title", t(hintKey));
 }
 
 function closeThemePicker() {
@@ -125,6 +139,8 @@ export function initTheme() {
   setColorTheme(detectColorTheme(), { persist: false });
   setMode(detectMode(), { persist: false });
 
+  document.getElementById("modeToggle")?.addEventListener("click", toggleMode);
+
   document.getElementById("themePickerTrigger")?.addEventListener("click", (event) => {
     event.stopPropagation();
     toggleThemePicker();
@@ -134,12 +150,6 @@ export function initTheme() {
     button.addEventListener("click", () => {
       setColorTheme(button.dataset.colorThemeOption);
       closeThemePicker();
-    });
-  });
-
-  document.querySelectorAll("[data-mode-option]").forEach((button) => {
-    button.addEventListener("click", () => {
-      setMode(button.dataset.modeOption);
     });
   });
 
@@ -153,6 +163,8 @@ export function initTheme() {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeThemePicker();
   });
+
+  document.addEventListener("localechange", syncModeToggle);
 
   window
     .matchMedia("(prefers-color-scheme: dark)")

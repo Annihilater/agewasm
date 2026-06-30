@@ -10,6 +10,10 @@
     "chooseTheme": "Choose a color theme",
     "themeLight": "Light mode",
     "themeDark": "Dark mode",
+    "switchToChinese": "Switch to Chinese",
+    "switchToEnglish": "Switch to English",
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode",
     "english": "English",
     "chinese": "Chinese"
   },

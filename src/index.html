@@ -70,73 +70,37 @@
           <span class="app-brand-name" data-i18n="hero.title">Age Tool</span>
         </div>
         <div class="app-controls">
-          <div
-            class="control-segment"
-            role="group"
-            data-i18n-aria-label="settings.language"
-            aria-label="Language"
+          <button
+            type="button"
+            class="control-btn control-btn--locale"
+            id="localeToggle"
+            aria-label="Switch to Chinese"
           >
-            <button
-              type="button"
-              class="control-btn control-btn--text"
-              data-locale-option="en"
-              aria-pressed="true"
-              data-i18n-aria-label="settings.english"
-              aria-label="English"
-            >
-              EN
-            </button>
-            <button
-              type="button"
-              class="control-btn control-btn--text"
-              data-locale-option="zh"
-              aria-pressed="false"
-              data-i18n-aria-label="settings.chinese"
-              aria-label="Chinese"
-            >
-              中
-            </button>
-          </div>
-          <span class="control-divider" aria-hidden="true"></span>
-          <div
-            class="control-segment"
-            role="group"
-            data-i18n-aria-label="settings.appearance"
-            aria-label="Appearance"
+            <span class="locale-toggle-label">EN</span>
+          </button>
+          <button
+            type="button"
+            class="control-btn control-btn--icon"
+            id="modeToggle"
+            aria-label="Switch to dark mode"
+            title="Switch to dark mode"
           >
-            <button
-              type="button"
-              class="control-btn"
-              data-mode-option="light"
-              aria-pressed="true"
-              data-i18n-aria-label="settings.themeLight"
-              data-i18n-title="settings.themeLight"
-              title="Light mode"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
+            <span class="control-icon control-icon--light" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="4"></circle>
                 <path d="M12 3v2M12 19v2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M3 12h2M19 12h2M5.6 18.4l1.4-1.4M17 7l1.4-1.4"></path>
               </svg>
-            </button>
-            <button
-              type="button"
-              class="control-btn"
-              data-mode-option="dark"
-              aria-pressed="false"
-              data-i18n-aria-label="settings.themeDark"
-              data-i18n-title="settings.themeDark"
-              title="Dark mode"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
+            </span>
+            <span class="control-icon control-icon--dark" hidden aria-hidden="true">
+              <svg viewBox="0 0 24 24">
                 <path d="M20 14.5A7.5 7.5 0 1 1 9.5 4a6 6 0 1 0 10.5 10.5z"></path>
               </svg>
-            </button>
-          </div>
-          <span class="control-divider" aria-hidden="true"></span>
+            </span>
+          </button>
           <div class="theme-picker" id="themePicker">
             <button
               type="button"
-              class="control-btn control-btn--solo"
+              class="control-btn control-btn--icon"
               id="themePickerTrigger"
               aria-haspopup="true"
               aria-expanded="false"
