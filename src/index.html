@@ -18,26 +18,44 @@
 
     <script>
       (function () {
-        var themes = {
-          slate: "light",
-          paper: "light",
-          arctic: "light",
-          midnight: "dark",
-          obsidian: "dark",
-          forest: "dark",
+        var colorThemes = [
+          "slate",
+          "indigo",
+          "ocean",
+          "moss",
+          "sand",
+          "graphite",
+        ];
+        var legacyColorMap = {
+          paper: "sand",
+          arctic: "ocean",
+          midnight: "ocean",
+          obsidian: "indigo",
+          forest: "moss",
         };
-        var saved = localStorage.getItem("agewasm-color-theme");
-        var legacy = localStorage.getItem("agewasm-theme");
+        var savedColor = localStorage.getItem("agewasm-color-theme");
         var colorTheme = "slate";
+        if (savedColor && colorThemes.indexOf(savedColor) !== -1) {
+          colorTheme = savedColor;
+        } else if (savedColor && legacyColorMap[savedColor]) {
+          colorTheme = legacyColorMap[savedColor];
+        }
 
-        if (saved && themes[saved]) {
-          colorTheme = saved;
-        } else if (legacy === "dark") {
-          colorTheme = "midnight";
+        var savedMode = localStorage.getItem("agewasm-mode");
+        var legacyMode = localStorage.getItem("agewasm-theme");
+        var mode = "light";
+        if (savedMode === "light" || savedMode === "dark") {
+          mode = savedMode;
+        } else if (legacyMode === "light" || legacyMode === "dark") {
+          mode = legacyMode;
+        } else if (
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          mode = "dark";
         }
 
         document.documentElement.dataset.colorTheme = colorTheme;
-        document.documentElement.dataset.bsTheme = themes[colorTheme];
+        document.documentElement.dataset.bsTheme = mode;
       })();
     </script>
 
@@ -79,6 +97,35 @@
               中
             </button>
           </div>
+          <div
+            class="btn-group btn-group-sm app-toolbar-group"
+            role="group"
+            data-i18n-aria-label="settings.appearance"
+            aria-label="Appearance"
+          >
+            <button
+              type="button"
+              class="btn btn-app"
+              data-mode-option="light"
+              aria-pressed="true"
+              data-i18n-aria-label="settings.themeLight"
+              data-i18n-title="settings.themeLight"
+              title="Light mode"
+            >
+              ☀
+            </button>
+            <button
+              type="button"
+              class="btn btn-app"
+              data-mode-option="dark"
+              aria-pressed="false"
+              data-i18n-aria-label="settings.themeDark"
+              data-i18n-title="settings.themeDark"
+              title="Dark mode"
+            >
+              ☽
+            </button>
+          </div>
           <div class="theme-picker" id="themePicker">
             <button
               type="button"
@@ -108,84 +155,72 @@
                     data-preview="slate"
                     aria-hidden="true"
                   ></span>
-                  <span data-theme-label="slate" data-i18n="themes.slate"
-                    >Slate</span
-                  >
+                  <span data-i18n="themes.slate">Slate</span>
                 </button>
                 <button
                   type="button"
                   class="theme-swatch"
-                  data-color-theme-option="paper"
+                  data-color-theme-option="indigo"
                   aria-pressed="false"
                 >
                   <span
                     class="theme-swatch-preview"
-                    data-preview="paper"
+                    data-preview="indigo"
                     aria-hidden="true"
                   ></span>
-                  <span data-theme-label="paper" data-i18n="themes.paper"
-                    >Paper</span
-                  >
+                  <span data-i18n="themes.indigo">Indigo</span>
                 </button>
                 <button
                   type="button"
                   class="theme-swatch"
-                  data-color-theme-option="arctic"
+                  data-color-theme-option="ocean"
                   aria-pressed="false"
                 >
                   <span
                     class="theme-swatch-preview"
-                    data-preview="arctic"
+                    data-preview="ocean"
                     aria-hidden="true"
                   ></span>
-                  <span data-theme-label="arctic" data-i18n="themes.arctic"
-                    >Arctic</span
-                  >
+                  <span data-i18n="themes.ocean">Ocean</span>
                 </button>
                 <button
                   type="button"
                   class="theme-swatch"
-                  data-color-theme-option="midnight"
+                  data-color-theme-option="moss"
                   aria-pressed="false"
                 >
                   <span
                     class="theme-swatch-preview"
-                    data-preview="midnight"
+                    data-preview="moss"
                     aria-hidden="true"
                   ></span>
-                  <span data-theme-label="midnight" data-i18n="themes.midnight"
-                    >Midnight</span
-                  >
+                  <span data-i18n="themes.moss">Moss</span>
                 </button>
                 <button
                   type="button"
                   class="theme-swatch"
-                  data-color-theme-option="obsidian"
+                  data-color-theme-option="sand"
                   aria-pressed="false"
                 >
                   <span
                     class="theme-swatch-preview"
-                    data-preview="obsidian"
+                    data-preview="sand"
                     aria-hidden="true"
                   ></span>
-                  <span data-theme-label="obsidian" data-i18n="themes.obsidian"
-                    >Obsidian</span
-                  >
+                  <span data-i18n="themes.sand">Sand</span>
                 </button>
                 <button
                   type="button"
                   class="theme-swatch"
-                  data-color-theme-option="forest"
+                  data-color-theme-option="graphite"
                   aria-pressed="false"
                 >
                   <span
                     class="theme-swatch-preview"
-                    data-preview="forest"
+                    data-preview="graphite"
                     aria-hidden="true"
                   ></span>
-                  <span data-theme-label="forest" data-i18n="themes.forest"
-                    >Forest</span
-                  >
+                  <span data-i18n="themes.graphite">Graphite</span>
                 </button>
               </div>
             </div>

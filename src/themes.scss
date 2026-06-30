@@ -1,4 +1,4 @@
-// Color theme presets — combined with Bootstrap data-bs-theme (light/dark)
+// Color palettes × light/dark mode (orthogonal axes)
 
 @mixin theme-vars(
   $primary,
@@ -13,7 +13,7 @@
   $toolbar-border,
   $brand-bg,
   $brand-fg,
-  $shadow: 0 8px 24px rgba(15, 23, 42, 0.06)
+  $shadow
 ) {
   --bs-primary: #{$primary};
   --bs-primary-rgb: #{$primary-rgb};
@@ -32,152 +32,276 @@
   --app-panel-shadow: #{$shadow};
 }
 
-[data-color-theme="slate"] {
+// ── Slate — cool neutral ──────────────────────────────────────────
+
+[data-color-theme="slate"][data-bs-theme="light"] {
   @include theme-vars(
-    #2563eb,
-    "37, 99, 235",
-    #f1f5f9,
-    rgba(255, 255, 255, 0.94),
+    #4a5d73,
+    "74, 93, 115",
+    #f3f4f6,
+    rgba(255, 255, 255, 0.92),
     #ffffff,
-    #e2e8f0,
-    #f8fafc,
+    #e2e6ec,
+    #eef0f3,
     #ffffff,
-    #eef2f7,
-    #cbd5e1,
-    #1d4ed8,
-    #ffffff
+    #eceff3,
+    #d5dbe3,
+    #4a5d73,
+    #ffffff,
+    0 6px 20px rgba(30, 41, 59, 0.05)
   );
 }
 
-[data-color-theme="paper"] {
+[data-color-theme="slate"][data-bs-theme="dark"] {
   @include theme-vars(
-    #4f46e5,
-    "79, 70, 229",
-    #f5f5f4,
-    rgba(255, 255, 253, 0.94),
-    #ffffff,
-    #e7e5e4,
-    #fafaf9,
-    #ffffff,
-    #f5f5f4,
-    #d6d3d1,
-    #4338ca,
-    #ffffff
+    #9aabc0,
+    "154, 171, 192",
+    #12151a,
+    rgba(18, 21, 26, 0.94),
+    #1a1f27,
+    #2a313c,
+    #151920,
+    #1a1f27,
+    #222831,
+    #343d4a,
+    #6b7d94,
+    #0f1318,
+    0 8px 28px rgba(0, 0, 0, 0.32)
   );
 }
 
-[data-color-theme="arctic"] {
+// ── Indigo — refined violet ───────────────────────────────────────
+
+[data-color-theme="indigo"][data-bs-theme="light"] {
   @include theme-vars(
-    #0284c7,
-    "2, 132, 199",
-    #f0f9ff,
-    rgba(255, 255, 255, 0.94),
+    #5b5a9a,
+    "91, 90, 154",
+    #f6f5fa,
+    rgba(255, 255, 255, 0.92),
     #ffffff,
-    #bae6fd,
-    #e0f2fe,
+    #e6e4ef,
+    #f0eef6,
     #ffffff,
-    #e0f2fe,
-    #7dd3fc,
-    #0369a1,
-    #ffffff
+    #ebe9f3,
+    #d8d4e6,
+    #5b5a9a,
+    #ffffff,
+    0 6px 20px rgba(55, 48, 107, 0.05)
   );
 }
 
-[data-color-theme="midnight"] {
+[data-color-theme="indigo"][data-bs-theme="dark"] {
   @include theme-vars(
-    #38bdf8,
-    "56, 189, 248",
-    #0b1220,
-    rgba(11, 18, 32, 0.94),
-    #131c2e,
-    #1e2d45,
-    #0f172a,
-    #131c2e,
-    #1a2438,
-    #2a3a55,
-    #0ea5e9,
-    #082f49,
-    0 8px 28px rgba(0, 0, 0, 0.35)
+    #a8a8d8,
+    "168, 168, 216",
+    #111018,
+    rgba(17, 16, 24, 0.94),
+    #191824,
+    #2a2838,
+    #141220,
+    #191824,
+    #211f2e,
+    #353247,
+    #7c7ab0,
+    #f5f4ff,
+    0 8px 28px rgba(0, 0, 0, 0.34)
   );
 }
 
-[data-color-theme="obsidian"] {
+// ── Ocean — deep navy ─────────────────────────────────────────────
+
+[data-color-theme="ocean"][data-bs-theme="light"] {
   @include theme-vars(
-    #a78bfa,
-    "167, 139, 250",
-    #09090b,
-    rgba(9, 9, 11, 0.94),
-    #141416,
+    #3a6280,
+    "58, 98, 128",
+    #f2f6f9,
+    rgba(255, 255, 255, 0.92),
+    #ffffff,
+    #d6e2eb,
+    #e8f0f6,
+    #ffffff,
+    #e4ecf2,
+    #c5d5e2,
+    #3a6280,
+    #ffffff,
+    0 6px 20px rgba(30, 58, 80, 0.05)
+  );
+}
+
+[data-color-theme="ocean"][data-bs-theme="dark"] {
+  @include theme-vars(
+    #7ba3c0,
+    "123, 163, 192",
+    #0d1218,
+    rgba(13, 18, 24, 0.94),
+    #141c25,
+    #243040,
+    #101820,
+    #141c25,
+    #1a2530,
+    #2e3f52,
+    #4a7a9a,
+    #e8f4fc,
+    0 8px 28px rgba(0, 0, 0, 0.34)
+  );
+}
+
+// ── Moss — sage green ─────────────────────────────────────────────
+
+[data-color-theme="moss"][data-bs-theme="light"] {
+  @include theme-vars(
+    #4a6b57,
+    "74, 107, 87",
+    #f4f7f5,
+    rgba(255, 255, 255, 0.92),
+    #ffffff,
+    #dce6df,
+    #ecf2ee,
+    #ffffff,
+    #e6ede8,
+    #c8d6cc,
+    #4a6b57,
+    #ffffff,
+    0 6px 20px rgba(40, 70, 55, 0.05)
+  );
+}
+
+[data-color-theme="moss"][data-bs-theme="dark"] {
+  @include theme-vars(
+    #8fb39a,
+    "143, 179, 154",
+    #0f1411,
+    rgba(15, 20, 17, 0.94),
+    #171f1a,
+    #283530,
+    #121916,
+    #171f1a,
+    #1f2a24,
+    #35463c,
+    #5e8a6e,
+    #edf5ef,
+    0 8px 28px rgba(0, 0, 0, 0.34)
+  );
+}
+
+// ── Sand — warm stone ─────────────────────────────────────────────
+
+[data-color-theme="sand"][data-bs-theme="light"] {
+  @include theme-vars(
+    #8a7358,
+    "138, 115, 88",
+    #faf8f5,
+    rgba(255, 255, 255, 0.92),
+    #ffffff,
+    #e8e2d8,
+    #f3efe9,
+    #ffffff,
+    #eee9e2,
+    #d9d0c4,
+    #8a7358,
+    #ffffff,
+    0 6px 20px rgba(90, 70, 50, 0.05)
+  );
+}
+
+[data-color-theme="sand"][data-bs-theme="dark"] {
+  @include theme-vars(
+    #c4a882,
+    "196, 168, 130",
+    #141210,
+    rgba(20, 18, 16, 0.94),
+    #1e1b18,
+    #332e28,
+    #181614,
+    #1e1b18,
+    #282420,
+    #3f3830,
+    #a08868,
+    #faf6f0,
+    0 8px 28px rgba(0, 0, 0, 0.34)
+  );
+}
+
+// ── Graphite — monochrome zinc ──────────────────────────────────
+
+[data-color-theme="graphite"][data-bs-theme="light"] {
+  @include theme-vars(
+    #52525b,
+    "82, 82, 91",
+    #f7f7f8,
+    rgba(255, 255, 255, 0.92),
+    #ffffff,
+    #e4e4e7,
+    #f0f0f2,
+    #ffffff,
+    #ebebed,
+    #d4d4d8,
+    #3f3f46,
+    #ffffff,
+    0 6px 20px rgba(24, 24, 27, 0.05)
+  );
+}
+
+[data-color-theme="graphite"][data-bs-theme="dark"] {
+  @include theme-vars(
+    #a1a1aa,
+    "161, 161, 170",
+    #0c0c0e,
+    rgba(12, 12, 14, 0.94),
+    #161618,
     #27272a,
     #111113,
-    #141416,
+    #161618,
     #1c1c1f,
     #3f3f46,
-    #7c3aed,
-    #faf5ff,
-    0 8px 28px rgba(0, 0, 0, 0.4)
+    #71717a,
+    #fafafa,
+    0 8px 28px rgba(0, 0, 0, 0.36)
   );
 }
 
-[data-color-theme="forest"] {
-  @include theme-vars(
-    #2dd4bf,
-    "45, 212, 191",
-    #0a100e,
-    rgba(10, 16, 14, 0.94),
-    #121a17,
-    #1f2e29,
-    #0e1613,
-    #121a17,
-    #182420,
-    #2d4039,
-    #0d9488,
-    #ecfdf5,
-    0 8px 28px rgba(0, 0, 0, 0.35)
-  );
-}
-
+// Swatch previews (light accent + surface)
 .theme-swatch-preview {
   display: block;
   width: 100%;
   height: 1.75rem;
   border-radius: 0.375rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   background: linear-gradient(
     135deg,
-    var(--swatch-a) 0%,
-    var(--swatch-a) 50%,
-    var(--swatch-b) 50%,
-    var(--swatch-b) 100%
+    var(--swatch-accent) 0%,
+    var(--swatch-accent) 42%,
+    var(--swatch-surface) 42%,
+    var(--swatch-surface) 100%
   );
 }
 
 .theme-swatch-preview[data-preview="slate"] {
-  --swatch-a: #2563eb;
-  --swatch-b: #f1f5f9;
+  --swatch-accent: #4a5d73;
+  --swatch-surface: #f3f4f6;
 }
 
-.theme-swatch-preview[data-preview="paper"] {
-  --swatch-a: #4f46e5;
-  --swatch-b: #f5f5f4;
+.theme-swatch-preview[data-preview="indigo"] {
+  --swatch-accent: #5b5a9a;
+  --swatch-surface: #f6f5fa;
 }
 
-.theme-swatch-preview[data-preview="arctic"] {
-  --swatch-a: #0284c7;
-  --swatch-b: #f0f9ff;
+.theme-swatch-preview[data-preview="ocean"] {
+  --swatch-accent: #3a6280;
+  --swatch-surface: #f2f6f9;
 }
 
-.theme-swatch-preview[data-preview="midnight"] {
-  --swatch-a: #38bdf8;
-  --swatch-b: #0b1220;
+.theme-swatch-preview[data-preview="moss"] {
+  --swatch-accent: #4a6b57;
+  --swatch-surface: #f4f7f5;
 }
 
-.theme-swatch-preview[data-preview="obsidian"] {
-  --swatch-a: #a78bfa;
-  --swatch-b: #09090b;
+.theme-swatch-preview[data-preview="sand"] {
+  --swatch-accent: #8a7358;
+  --swatch-surface: #faf8f5;
 }
 
-.theme-swatch-preview[data-preview="forest"] {
-  --swatch-a: #2dd4bf;
-  --swatch-b: #0a100e;
+.theme-swatch-preview[data-preview="graphite"] {
+  --swatch-accent: #52525b;
+  --swatch-surface: #f7f7f8;
 }

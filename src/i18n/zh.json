@@ -5,18 +5,21 @@
   },
   "settings": {
     "language": "语言",
+    "appearance": "外观模式",
     "colorTheme": "配色主题",
     "chooseTheme": "选择配色主题",
+    "themeLight": "浅色模式",
+    "themeDark": "深色模式",
     "english": "English",
     "chinese": "中文"
   },
   "themes": {
-    "slate": "板岩蓝",
-    "paper": "纸感灰",
-    "arctic": "极地蓝",
-    "midnight": "午夜蓝",
-    "obsidian": "黑曜紫",
-    "forest": "森林绿"
+    "slate": "板岩灰",
+    "indigo": "靛紫",
+    "ocean": "深海蓝",
+    "moss": "苔藓绿",
+    "sand": "暖沙",
+    "graphite": "石墨"
   },
   "hero": {
     "title": "Age 工具",
