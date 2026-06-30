@@ -18,6 +18,7 @@
     "chinese": "Chinese"
   },
   "themes": {
+    "claude": "Claude",
     "alloy": "Alloy",
     "pulse": "Pulse",
     "grid": "Grid",

@@ -369,6 +369,82 @@ body {
   }
 }
 
+[data-color-theme="claude"] {
+  body {
+    background-image: none;
+  }
+
+  .app-brand-name {
+    font-family: Georgia, "Times New Roman", "Palatino Linotype", serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-transform: none;
+  }
+
+  .app-hero-subtitle {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .app-header {
+    backdrop-filter: blur(12px);
+    border-bottom-color: color-mix(in srgb, var(--app-panel-border) 70%, transparent);
+  }
+
+  .app-panel,
+  .theme-picker-menu {
+    border-radius: 0.875rem;
+    backdrop-filter: none;
+  }
+
+  .app-tabs .nav-link {
+    border-radius: 0.5rem 0.5rem 0 0;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .app-tabs .nav-link.active {
+    box-shadow: inset 0 -2px 0 var(--bs-primary);
+  }
+
+  .app-brand-mark {
+    border: 0;
+    border-radius: 0.5rem;
+    background: var(--app-brand-mark-bg);
+    color: var(--app-brand-mark-fg);
+    box-shadow: none;
+  }
+
+  .app-controls {
+    border-radius: 999px;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .app-card .form-control {
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 0.875rem;
+  }
+
+  .app-card .form-control:focus {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--bs-primary) 22%, transparent);
+  }
+
+  .btn-primary {
+    border-radius: 0.5rem;
+  }
+
+  .theme-swatch-preview::before {
+    opacity: 0;
+  }
+
+  .theme-swatch-preview::after {
+    box-shadow: none;
+  }
+}
+
 @media (max-width: 575.98px) {
   .app-header-inner {
     min-height: 3.25rem;

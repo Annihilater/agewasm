@@ -19,6 +19,7 @@
     <script>
       (function () {
         var colorThemes = [
+          "claude",
           "alloy",
           "pulse",
           "grid",
@@ -40,7 +41,7 @@
           forest: "lattice",
         };
         var savedColor = localStorage.getItem("agewasm-color-theme");
-        var colorTheme = "signal";
+        var colorTheme = "claude";
         if (savedColor && colorThemes.indexOf(savedColor) !== -1) {
           colorTheme = savedColor;
         } else if (savedColor && legacyColorMap[savedColor]) {
@@ -54,10 +55,6 @@
           mode = savedMode;
         } else if (legacyMode === "light" || legacyMode === "dark") {
           mode = legacyMode;
-        } else if (
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-        ) {
-          mode = "dark";
         }
 
         document.documentElement.dataset.colorTheme = colorTheme;
@@ -130,6 +127,19 @@
                 <button
                   type="button"
                   class="theme-swatch"
+                  data-color-theme-option="claude"
+                  aria-pressed="true"
+                >
+                  <span
+                    class="theme-swatch-preview"
+                    data-preview="claude"
+                    aria-hidden="true"
+                  ></span>
+                  <span data-i18n="themes.claude">Claude</span>
+                </button>
+                <button
+                  type="button"
+                  class="theme-swatch"
                   data-color-theme-option="alloy"
                   aria-pressed="false"
                 >
@@ -196,7 +206,7 @@
                   type="button"
                   class="theme-swatch"
                   data-color-theme-option="signal"
-                  aria-pressed="true"
+                  aria-pressed="false"
                 >
                   <span
                     class="theme-swatch-preview"

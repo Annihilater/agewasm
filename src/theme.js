@@ -4,9 +4,10 @@ const COLOR_STORAGE_KEY = "agewasm-color-theme";
 const MODE_STORAGE_KEY = "agewasm-mode";
 const LEGACY_MODE_KEY = "agewasm-theme";
 
-const DEFAULT_COLOR_THEME = "signal";
+const DEFAULT_COLOR_THEME = "claude";
 
 export const COLOR_THEMES = [
+  "claude",
   "alloy",
   "pulse",
   "grid",
@@ -28,12 +29,6 @@ const LEGACY_COLOR_MAP = {
   obsidian: "spectra",
   forest: "lattice",
 };
-
-function getSystemMode() {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
 
 export function getColorTheme() {
   return document.documentElement.dataset.colorTheme ?? DEFAULT_COLOR_THEME;
@@ -57,7 +52,7 @@ export function detectMode() {
   const legacy = localStorage.getItem(LEGACY_MODE_KEY);
   if (legacy === "light" || legacy === "dark") return legacy;
 
-  return getSystemMode();
+  return "light";
 }
 
 export function setColorTheme(theme, { persist = true } = {}) {
@@ -171,12 +166,4 @@ export function initTheme() {
   });
 
   document.addEventListener("localechange", syncModeToggle);
-
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (event) => {
-      if (!localStorage.getItem(MODE_STORAGE_KEY)) {
-        setMode(event.matches ? "dark" : "light", { persist: false });
-      }
-    });
 }

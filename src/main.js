@@ -3,6 +3,11 @@ import "./bootstrap-custom.scss";
 import "bootstrap";
 
 import { initI18n, t } from "./i18n/index.js";
+import {
+  initUiStatePersistence,
+  restoreUiState,
+  saveUiState,
+} from "./state.js";
 import { initTheme } from "./theme.js";
 
 import "../vendor/wasm_exec.js";
@@ -71,6 +76,7 @@ document
     privkey.value = keys.privateKey;
     pubshare.removeAttribute("hidden");
     pubshare.setAttribute("href", `/?pubkey=${keys.publicKey}`);
+    saveUiState();
   });
 
 document.getElementById("encryptForm").addEventListener("submit", function (e) {
@@ -86,6 +92,7 @@ document.getElementById("encryptForm").addEventListener("submit", function (e) {
     alert(document.getElementById("errorEncrypt"), result.error, "danger");
   } else {
     output.value = result.output;
+    saveUiState();
   }
 });
 
@@ -139,6 +146,7 @@ document.getElementById("decryptForm").addEventListener("submit", function (e) {
     alert(document.getElementById("errorDecrypt"), result.error, "danger");
   } else {
     output.value = result.output;
+    saveUiState();
   }
 });
 
@@ -185,17 +193,21 @@ document
 document.addEventListener("DOMContentLoaded", function () {
   initI18n();
   initTheme();
+  initUiStatePersistence();
 
   const params = new URLSearchParams(window.location.search);
   const pubkey = params.get("pubkey");
+
   if (pubkey) {
-    const encTab = document.getElementById("encrypt-tab");
+    restoreUiState({ preferTab: "encrypt-tab" });
     const reciText = document.getElementById("recipients");
     const reciBin = document.getElementById("recipients-binary");
     const message = document.getElementById("message");
-    encTab.click();
     reciText.value = pubkey.replaceAll(",", "\n");
     reciBin.value = pubkey.replaceAll(",", "\n");
     message.focus();
+    saveUiState();
+  } else {
+    restoreUiState();
   }
 });

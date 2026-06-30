@@ -241,6 +241,47 @@
   );
 }
 
+// Claude — warm parchment & terracotta (claude.ai inspired)
+[data-color-theme="claude"][data-bs-theme="light"] {
+  @include theme-vars(
+    #d97757,
+    "217, 119, 87",
+    #faf8f4,
+    rgba(250, 248, 244, 0.94),
+    #ffffff,
+    #e8e4dc,
+    #f5f2ec,
+    #ffffff,
+    #f0ede6,
+    #ddd8ce,
+    #d97757,
+    #ffffff,
+    (0 1px 3px rgba(43, 41, 35, 0.06), 0 4px 14px rgba(43, 41, 35, 0.05)),
+    transparent,
+    transparent
+  );
+}
+
+[data-color-theme="claude"][data-bs-theme="dark"] {
+  @include theme-vars(
+    #e8956f,
+    "232, 149, 111",
+    #141413,
+    rgba(20, 20, 19, 0.94),
+    #1f1e1c,
+    #3a3834,
+    #1a1918,
+    #1f1e1c,
+    #262524,
+    #3a3834,
+    #d97757,
+    #faf8f4,
+    (0 1px 3px rgba(0, 0, 0, 0.22), 0 4px 14px rgba(0, 0, 0, 0.16)),
+    transparent,
+    rgba(232, 149, 111, 0.1)
+  );
+}
+
 // Signal — oscilloscope trace
 [data-color-theme="signal"][data-bs-theme="light"] {
   @include theme-vars(
@@ -350,4 +391,10 @@
   --swatch-bg: #0c0906;
   --swatch-accent: #ffb347;
   --swatch-grid: rgba(255, 179, 71, 0.12);
+}
+
+.theme-swatch-preview[data-preview="claude"] {
+  --swatch-bg: #141413;
+  --swatch-accent: #e8956f;
+  --swatch-grid: rgba(232, 149, 111, 0.08);
 }
