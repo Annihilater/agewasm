@@ -4,7 +4,7 @@ const COLOR_STORAGE_KEY = "agewasm-color-theme";
 const MODE_STORAGE_KEY = "agewasm-mode";
 const LEGACY_MODE_KEY = "agewasm-theme";
 
-const DEFAULT_COLOR_THEME = "pulse";
+const DEFAULT_COLOR_THEME = "signal";
 
 export const COLOR_THEMES = [
   "alloy",

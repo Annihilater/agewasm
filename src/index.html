@@ -40,7 +40,7 @@
           forest: "lattice",
         };
         var savedColor = localStorage.getItem("agewasm-color-theme");
-        var colorTheme = "pulse";
+        var colorTheme = "signal";
         if (savedColor && colorThemes.indexOf(savedColor) !== -1) {
           colorTheme = savedColor;
         } else if (savedColor && legacyColorMap[savedColor]) {
@@ -144,7 +144,7 @@
                   type="button"
                   class="theme-swatch"
                   data-color-theme-option="pulse"
-                  aria-pressed="true"
+                  aria-pressed="false"
                 >
                   <span
                     class="theme-swatch-preview"
@@ -196,7 +196,7 @@
                   type="button"
                   class="theme-swatch"
                   data-color-theme-option="signal"
-                  aria-pressed="false"
+                  aria-pressed="true"
                 >
                   <span
                     class="theme-swatch-preview"
